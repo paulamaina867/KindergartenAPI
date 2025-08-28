@@ -38,26 +38,26 @@ const parentsRoutes = require("./routes/parent");
 app.use("/api/parents", parentsRoutes);
 
 // Specify the routes for fetching students Details
-const studentRoutes = require("./routes/student");
-app.use("/api/students", studentRoutes);
+const studentsRoutes = require("./routes/student");
+app.use("/api/students", studentsRoutes);
 
 // specify the routes to the admin dashboard
 const adminDashboardRoutes = require("./routes/dashboardAdmin");
 app.use("/api/dashboarAdmin", adminDashboardRoutes)
 
 // specify the routes to to teacher dashboard
-const teacherDashboard = require("./routes/teacherStats");
+const teacherDashboard = require("./routes/statsTeacher");
 app.use("/api/teacherDashboard", teacherDashboard);
 
 
 // specify the routes for accessing the parents dashboard stats
-const parentDashboardRoutes = require("./routes/parentDashboardStas");
+const parentDashboardRoutes = require("./routes/parentsDashboard");
 app.use("/api/parentDashboard", parentDashboardRoutes)
 
 
 
 // Test/establish the connection to the database using the link specified inside of the .env file
-mongoose.connect(process.env.MONGO_URI)
+mongoose.connect(process.env.MONGO_URL)
 .then(()=> console.log("Mongodb successfully connected"))
 .catch(err => console.error("MongoDb connection Error", err))
 
